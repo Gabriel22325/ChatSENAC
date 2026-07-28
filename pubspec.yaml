@@ -78,7 +78,7 @@ flutter:
       fonts:
         - asset: assets/fontes/Inter-Regular.ttf
         - asset: assets/fontes/Inter-Italic.ttf
-          style:
+          style: italic
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
