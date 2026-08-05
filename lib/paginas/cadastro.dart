@@ -1,154 +1,148 @@
 import 'package:flutter/material.dart';
 import 'package:primeiro_app/utilitarios/tipografia.dart';
 
-class Cadastro extends StatefulWidget {
+class Cadastro extends StatelessWidget {
   const Cadastro({super.key});
 
   @override
-  State<Cadastro> createState() => _CadastroState();
-}
-
-class _CadastroState extends State<Cadastro> {
-  final TextEditingController _dataController = TextEditingController();
-
-  @override
-  void dispose() {
-    _dataController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Botão de voltar
-          Align(
-            alignment: Alignment.centerLeft,
-            child: GestureDetector(
-
-                child: const Icon(Icons.arrow_back)),
-          ),
-          const SizedBox(height: 8),
-
-          // Títulos
-          Text("Cadastro", style: Tipografia.h1),
-          const SizedBox(height: 12),
-          Text("Crie sua conta para continuar!", style: Tipografia.subtitulo),
-          const SizedBox(height: 32),
-
-          // Campo de Nome
-          const Text("Nome Completo"),
-          const SizedBox(height: 4),
-          TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-
-          // Campo de Email
-          const Text("Email"),
-          const SizedBox(height: 4),
-          TextField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              hintText: "exemplo@gmail.com",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-
-          // Campo de Senha
-          const Text("Senha"),
-          const SizedBox(height: 4),
-          TextField(
-            obscureText: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            decoration: InputDecoration(
-              hintText: "••••••••",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
-
-          // Campo de Confirmar Senha
-          const Text("Confirmar Senha"),
-          const SizedBox(height: 4),
-          TextField(
-            obscureText: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            decoration: InputDecoration(
-              hintText: "••••••••",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-            ),
-          ),
-          const SizedBox(height: 24),
-
-          // Botão Registrar
-          SizedBox(
-            width: double.infinity,
-            height: 48,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          // Tópico 1: Rolagem e margens nas bordas
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back,
+                    size: 20,
+                    color: Colors.black,
+                  ),
                 ),
               ),
-              child: const Text(
-                "Registrar",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(height: 54),
 
-          // Rodapé
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Já tem uma conta? "),
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Login", style: Tipografia.Link),
+              // Logo e Nome do App
+              const SizedBox(height: 32), // Tópico 3
+              // Títulos
+              Text("Cadastrar-se", style: Tipografia.h1),
+              const SizedBox(height: 12), // Tópico 3
+              Text(
+                "Crie uma conta para continuar!",
+                style: Tipografia.subtitulo,
               ),
+              const SizedBox(height: 32), // Tópico 3
+              // Campo de Nome
+              Text("Nome"),
+              const SizedBox(height: 4), // Tópico 3
+              TextField(
+                // Tópico 4: Estilização do input
+                decoration: InputDecoration(
+                  hintText: "exemplo@gmail.com",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20), // Tópico 3
+              // Campo de Email
+              Text("Email"),
+              const SizedBox(height: 4), // Tópico 3
+              TextField(
+                // Tópico 4: Estilização do input
+                decoration: InputDecoration(
+                  hintText: "exemplo@gmail.com",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 19), // Tópico 3
+              // Campo de Senha
+              Text("Senha"),
+              const SizedBox(height: 4), // Tópico 3
+              TextField(
+                // Tópico 5: Oculta a senha
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "••••••••",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: Icon(Icons.visibility_off),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20), // Tópico 3
+              // Campo de Confirmar Senha
+              Text("Confirmar Senha"),
+              const SizedBox(height: 4), // Tópico 3
+              TextField(
+                // Tópico 5: Oculta a senha
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "••••••••",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: Icon(Icons.visibility_off),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 30), // Tópico 3
+
+              const SizedBox(height: 24), // Tópico 3
+              // Botão Entrar Principal
+              SizedBox(
+                height: 48,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: const Text(
+                    "Registrar",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16), // Tópico 3
+
+              const SizedBox(height: 16), // Tópico 3
+
+              const SizedBox(height: 54), // Tópico 3
             ],
           ),
-        ],
+        ),
       ),
     );
   }
